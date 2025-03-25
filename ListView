@@ -1,0 +1,30 @@
+public class MainActivity extends Activity implements OnItemClickListener {
+ListView lv;
+String title[]={"Google","FaceBook","Twitter","Youtube"};
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ try
+ {
+ lv=(ListView) findViewById(R.id.listView1);
+ ArrayAdapter<String> adt= new ArrayAdapter<String>(MainActivity.this,
+android.R.layout.simple_list_item_1,title);
+ lv.setAdapter(adt);
+ lv.setOnItemClickListener(this);
+
+ }
+ catch(Exception e)
+ {
+
+ Toast.makeText(this,e.toString(),Toast.LENGTH_SHORT).show();
+ }
+ }
+@Override
+public void onItemClick(AdapterView<?>arg0,View arg1,int position,long
+arg3)
+{
+Toast.makeText(this, title[position]+" is selected",
+Toast.LENGTH_LONG).show();
+ }
+ }
