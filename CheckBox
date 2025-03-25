@@ -1,0 +1,31 @@
+public class MainActivity extends Activity {
+ Button bt;
+ CheckBox cb1,cb2,cb3,cb4;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+
+ bt=(Button) findViewById(R.id.button1) ;
+ cb1=(CheckBox) findViewById(R.id.checkBox1);
+ cb2=(CheckBox) findViewById(R.id.checkBox2);
+ cb3=(CheckBox) findViewById(R.id.checkBox3);
+ cb4=(CheckBox) findViewById(R.id.checkBox4);
+
+ bt.setOnClickListener(new OnClickListener() {
+@Override
+public void onClick(View arg0) {
+// TODO Auto-generated method stub
+StringBuffer sb=new StringBuffer();
+sb.append("Java : " ).append(cb1.isChecked());
+sb.append("\n PHP : ").append(cb2.isChecked());
+sb.append("\n Android :").append(cb3.isChecked());
+sb.append("\n Shell : ").append(cb4.isChecked());
+Toast.makeText(MainActivity.this, sb.toString(),
+Toast.LENGTH_LONG).show();
+}
+}) ;
+
+ }
+
+}
