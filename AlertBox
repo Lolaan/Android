@@ -1,0 +1,38 @@
+public class MainActivity extends Activity implements OnClickListener {
+Button bt1;
+ @Override
+ protected void onCreate(Bundle savedInstanceState)
+ {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+
+ bt1=(Button) findViewById(R.id.button1);
+ bt1.setOnClickListener(this);
+ }
+
+ public void onClick(View arg0)
+ {
+AlertDialog.Builder b1= new AlertDialog.Builder(MainActivity.this);
+b1.setIcon(R.drawable.ic_launcher);
+b1.setTitle("Caution!");
+b1.setMessage("Do you want to Quit");
+b1.setPositiveButton("OK", new DialogInterface.OnClickListener()
+{
+ @Override
+ public void onClick(DialogInterface arg0, int arg1)
+ {
+Toast.makeText(MainActivity.this, "You Clicked Ok",Toast.LENGTH_LONG).show();
+}
+ });
+b1.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
+{
+ @Override
+ public void onClick(DialogInterface arg0, int arg1)
+{
+Toast.makeText(MainActivity.this,"You Clicked Cancel", Toast.LENGTH_LONG).show();
+}
+ });
+AlertDialog d1= b1.create();
+d1.show();
+}
+ }
