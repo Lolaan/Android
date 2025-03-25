@@ -1,0 +1,24 @@
+public class MainActivity extends Activity {
+Button btn;
+RadioGroup rg;
+RadioButton rb;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+
+ btn=(Button) findViewById(R.id.button1);
+ rg=(RadioGroup) findViewById(R. id.radioGroup1);
+
+
+ btn.setOnClickListener(new OnClickListener() {
+ @Override
+ public void onClick(View arg0) {
+ // TODO Auto-generated method stub
+ int selectd= rg.getCheckedRadioButtonId();
+ rb= (RadioButton) findViewById(selectd);
+ Toast.makeText(MainActivity.this, rb.getText(), 500).show();
+ }
+});
+
+ } }
